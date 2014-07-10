@@ -1,0 +1,1 @@
+jokes: python jokes.py
