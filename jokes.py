@@ -5,8 +5,11 @@ from twilio import TwilioRestException
 from apscheduler.scheduler import Scheduler
 from requests import get
 
-ACCOUNT_SID = "AC28f3d3e0ace40f8421f70f11930d7eed"
-AUTH_TOKEN = "5a2cb13b0e34f20e92b7b57856d19e72"
+ACCOUNT_SID = <ACCNT_SID>
+AUTH_TOKEN = <AUTH_TOK>
+YOUR_NUMBER = <NUM1>
+TWILIO_REGISTERED_NUM = <NUM2>
+
 CLIENT = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
 
 def send_message(content):
@@ -16,8 +19,8 @@ def send_message(content):
     try:
         CLIENT.messages.create( \
                     body = content, \
-                    to = "+14048344779", \
-                    from_= "+17209031234")
+                    to = YOUR_NUMBER, \
+                    from_= TWILIO_REGISTERED_NUM)
     except TwilioRestException as some_exception:
         print some_exception
 
@@ -30,11 +33,12 @@ HTML_QUIRKS = { \
 @SCHED.cron_schedule(hour = 7)
 def random_chuck_norris_generator():
     '''
-    GET a random joke using ICNdB API. Send the retrieved joke to +14048344779.
+    GET a random joke using ICNdB API. Send the retrieved joke to your
+    number.
     '''
-    response = get('http://api.icndb.com/jokes/random')
-    if response.json()['type'] == 'success':
-        joke = str(response.json()[u'value'][u'joke'])
+    response = get('http://api.icndb.com/jokes/random').json()
+    if response['type'] == 'success':
+        joke = str(response[u'value'][u'joke'])
         for chars in HTML_QUIRKS:
             joke = joke.replace(chars, HTML_QUIRKS[chars])
         send_message('\n*****\n' + joke + '\n*****\n')
