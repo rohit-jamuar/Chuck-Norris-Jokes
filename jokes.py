@@ -33,8 +33,7 @@ HTML_QUIRKS = { \
 @SCHED.cron_schedule(hour = 7)
 def random_chuck_norris_generator():
     '''
-    GET a random joke using ICNdB API. Send the retrieved joke to your
-    number.
+    GET a random joke using ICNdB API. Send the retrieved joke to YOUR_NUMBER.
     '''
     response = get('http://api.icndb.com/jokes/random').json()
     if response['type'] == 'success':
