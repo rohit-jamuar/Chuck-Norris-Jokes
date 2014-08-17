@@ -1,5 +1,5 @@
 ## What?
-*  *Chuck Norris dB* + Heroku + Twilio
+*  [Chuck Norris dB](http://www.icndb.com/) + Heroku + Twilio
 
 ## Why?
 *  Like 'Chuck Norris' jokes?
