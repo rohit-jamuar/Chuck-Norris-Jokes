@@ -1,8 +1,8 @@
 ## What?
-*  Chuck Norris dB + Heroku + Twilio
+*  *Chuck Norris dB* + Heroku + Twilio
 
 ## Why?
-*  Like Chuck Norris's jokes?
+*  Like 'Chuck Norris' jokes?
 *  Would you like Heroku to serve you a new joke everyday?
 *  Want to experiment with __Twilio__?
 
